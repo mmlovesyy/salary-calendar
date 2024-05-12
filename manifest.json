@@ -3,7 +3,20 @@
   "name": "搞钱日历",
   "version": "1.0",
   "description": "Simulates a money printing animation.",
-  "permissions": ["activeTab", "offscreen"],
+  "permissions": [
+    "activeTab",
+    "offscreen"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "popup.js"
+      ]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

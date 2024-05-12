@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="style.css">
+<script src="popup.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -11,26 +12,24 @@
     <div id="money-amount">
         <span class="title">本月你已搞钱</span>
         </br>
-        <span class="number">6666</span>
+        <span id="salary-got" class="number">6666</span>
         <span class="unit">元</span>
     </div>
     <div id="days-left">
         <span class="title">距发薪还剩</span>
         </br>
-        <span class="number">6</span>
+        <span id='days-left-number' class="number">6</span>
         <span class="unit">天</span>
-        <span class="number">6</span>
-        <span class="unit">小时</span>
-        <span class="number">6</span>
-        <span class="unit">分</span>
-        <span class="number">6</span>
-        <span class="unit">秒</span>
     </div>
 
-    <div id="settings">
-        <span class="input-title">你的月薪</span><input value="***" />
+    <div id="settings" class="input-title">
+        <span>你的月薪</span>
+        <input id="settings-salary" value="6666" />
+        <span>元</span>
         </br>
-        <span class="input-title">发 薪 日</span><input value="每月10号" />
+        <span class="input-title">发薪日为每月</span>
+        <input value="10" id="settings-date" />
+        <span>号</span>
     </div>
 
 
