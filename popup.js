@@ -1,9 +1,13 @@
 const daysOneMonth = 30
-const fixedDay = 10
 const decimalPlaces = 3
-var total = 6666
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+  const total = await fetchLocalStorage('salary') || 6666
+  const fixedDay = await fetchLocalStorage('day') || 10
+
+  document.getElementById('settings-salary').value = total
+  document.getElementById('settings-date-select').value = `${fixedDay}`
+
   const start = moneyGot(total, fixedDay)
   document.getElementById('salary-got').innerHTML = start.toFixed(decimalPlaces)
   document.getElementById('days-left-number').innerHTML = daysOneMonth - daysPassed(fixedDay)
@@ -28,8 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('settings-salary').addEventListener('input', function (event) {
     const total = Number(event.target.value)
-    const fixedDay = document.getElementById("settings-date-select").value
+    const fixedDay = Number(document.getElementById("settings-date-select").value)
     updateMoneyGotFunc(total, fixedDay)
+
+    const options = {
+      salary: total,
+      day: fixedDay
+    }
+    chrome.storage.local.set(options).then(() => {
+      console.log(`${JSON.stringify(options)}` + "Value is set");
+    });
   })
 
   document.getElementById("settings-date-select").addEventListener("change", function () {
@@ -37,6 +49,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const fixedDay = Number(this.value)
     updateMoneyGotFunc(total, fixedDay)
     document.getElementById('days-left-number').innerHTML = `${daysOneMonth - daysPassed(fixedDay)}`
+
+    const options = {
+      salary: total,
+      day: fixedDay
+    }
+    chrome.storage.local.set(options).then(() => {
+      console.log(`${JSON.stringify(options)}` + "Value is set");
+    });
   });
 
 });
@@ -62,4 +82,13 @@ function daysPassed(fixedDay) {
   }
 
   return daysOneMonth - fixedDay + today
+}
+
+async function fetchLocalStorage(key) {
+  return new Promise(resolve => {
+    chrome.storage.local.get([key]).then((result) => {
+      console.log("Value is " + JSON.stringify(result[key]));
+      resolve((result[key]))
+    });
+  })
 }
