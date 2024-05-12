@@ -1,49 +1,48 @@
 const daysOneMonth = 30
 const fixedDay = 10
 const decimalPlaces = 3
-var total = 66666
+var total = 6666
 
 document.addEventListener('DOMContentLoaded', function () {
-  var start = moneyGot(total, fixedDay)
-  var step = salaryPerSecond(total)
-  var counter = step
-
-  var daysLeft = document.getElementById('days-left-number');
-  daysLeft.innerHTML = daysOneMonth - daysPassed(fixedDay)
+  const start = moneyGot(total, fixedDay)
+  document.getElementById('salary-got').innerHTML = start.toFixed(decimalPlaces)
+  document.getElementById('days-left-number').innerHTML = daysOneMonth - daysPassed(fixedDay)
 
   var intervalId = setInterval(() => {
-    counter += step
-    updateMoneyGot(start + counter)
+    updateMoneyGotFunc(total, fixedDay)
   }, 1000)
 
-  const settingsSalary = document.getElementById('settings-salary')
-  console.log('adding value change listener')
-  settingsSalary.addEventListener('input', function (event) {
-    console.log('Input value changed:', event.target.value)
+  const updateMoneyGotFunc = function (total, fixedDay) {
     clearInterval(intervalId)
-
-    total = Number(event.target.value)
-    start = moneyGot(total, fixedDay)
-    step = salaryPerSecond(total)
-    counter = step
+    const start = moneyGot(total, fixedDay)
+    const step = salaryPerSecond(total)
+    var accumulator = step
+    accumulator += step
+    updateMoneyGot(start + accumulator)
 
     intervalId = setInterval(() => {
-      counter += step
-      updateMoneyGot(start + counter)
+      accumulator += step
+      updateMoneyGot(start + accumulator)
     }, 1000)
+  }
+
+  document.getElementById('settings-salary').addEventListener('input', function (event) {
+    const total = Number(event.target.value)
+    const fixedDay = document.getElementById("settings-date-select").value
+    updateMoneyGotFunc(total, fixedDay)
   })
 
-  document.getElementById('settings-date').addEventListener('input', function (event) {
-    const fixedDay = Number(event.target.value)
-    console.log(`settings-date changed to ${daysOneMonth - daysPassed(fixedDay)}`)
+  document.getElementById("settings-date-select").addEventListener("change", function () {
+    const total = Number(document.getElementById('settings-salary').value)
+    const fixedDay = Number(this.value)
+    updateMoneyGotFunc(total, fixedDay)
     document.getElementById('days-left-number').innerHTML = `${daysOneMonth - daysPassed(fixedDay)}`
-  })
+  });
 
 });
 
 function updateMoneyGot(latestMoneyGot) {
-  var amount = document.getElementById('salary-got');
-  amount.innerHTML = latestMoneyGot.toFixed(decimalPlaces)
+  document.getElementById('salary-got').innerHTML = latestMoneyGot.toFixed(decimalPlaces)
 }
 
 function salaryPerSecond(salaryTotal) {
