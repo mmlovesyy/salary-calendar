@@ -34,8 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   document.getElementById('settings-date').addEventListener('input', function (event) {
-    const fiexedDay = Number(event.target.value)
-    document.getElementById('settings-date').innerHTML = '' + (daysOneMonth - daysPassed(fiexedDay))
+    const fixedDay = Number(event.target.value)
+    console.log(`settings-date changed to ${daysOneMonth - daysPassed(fixedDay)}`)
+    document.getElementById('days-left-number').innerHTML = `${daysOneMonth - daysPassed(fixedDay)}`
   })
 
 });
@@ -61,5 +62,5 @@ function daysPassed(fixedDay) {
     return today - fixedDay
   }
 
-  return daysOneMonth + fixedDay - today
+  return daysOneMonth - fixedDay + today
 }
