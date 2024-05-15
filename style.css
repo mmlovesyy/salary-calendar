@@ -1,37 +1,65 @@
-body,
-html {
-  height: 500px;
+html,
+body {
+  height: 400px;
   width: 300px;
+  background-color: rgb(235, 86, 72);
 }
 
 #money-amount {
-  margin-top: 30px;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#days-left {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 #settings {
   margin-top: 100px;
 }
 
-#days-left {
-  margin-top: 20px;
+#settings-salary-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#settings-salary {
+  width: 50px;
+}
+
+#settings-date-box {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
-  color: black;
+  color: rgb(250, 224, 180);
   font-size: 14pt;
 }
 
 .unit {
-  color: darkgray;
+  color: rgb(250, 224, 180);
   font-size: 12pt;
 }
 
 .number {
-  color: red;
+  color: rgb(250, 224, 180);
   font-size: 40pt;
 }
 
 .input-title {
-  color: gray;
+  color: rgb(250, 224, 180);
   font-size: 14pt;
 }
