@@ -21,13 +21,17 @@ body {
   justify-content: center;
 }
 
+#salary-got-box {
+  margin-top: 10px;
+}
+
 #curveCanvas {
-  margin-top: -80px;
+  margin-top: -20px;
   /* background-color: rgba(0, 0, 0, 0.1); */
 }
 
 #days-left {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,7 +39,7 @@ body {
 }
 
 #settings {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 #settings-salary-box {
@@ -46,11 +50,11 @@ body {
 }
 
 #settings-salary {
-  width: 50px;
+  width: 60px;
 }
 
 #settings-date-box {
-  margin-top: 10px;
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,7 +73,7 @@ body {
 
 .number {
   color: rgb(250, 224, 180);
-  font-size: 40pt;
+  font-size: 30pt;
 }
 
 .input-title {
