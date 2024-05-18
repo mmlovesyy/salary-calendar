@@ -1,5 +1,5 @@
 const daysOneMonth = 30
-const decimalPlaces = 3
+const decimalPlaces = 2
 
 document.addEventListener('DOMContentLoaded', async function () {
   const total = await fetchLocalStorage('salary') || 6666
@@ -59,7 +59,28 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   });
 
+  drawCurve()
+
 });
+
+function drawCurve() {
+  const canvas = document.getElementById('curveCanvas');
+  const ctx = canvas.getContext('2d');
+
+  // Set up the shadow properties
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+  ctx.shadowBlur = 1.5;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 1;
+
+  // Draw the curved line
+  ctx.beginPath();
+  ctx.moveTo(0, 100); // Starting point
+  ctx.quadraticCurveTo(150, 150, 300, 100); // Control point and end point
+  ctx.strokeStyle = '#D14E3F'; // Line color
+  ctx.lineWidth = 1; // Line width
+  ctx.stroke(); // Draw the line
+}
 
 function updateMoneyGot(latestMoneyGot) {
   document.getElementById('salary-got').innerHTML = latestMoneyGot.toFixed(decimalPlaces)
