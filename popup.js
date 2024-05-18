@@ -2,8 +2,12 @@ const daysOneMonth = 30
 const decimalPlaces = 2
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const total = await fetchLocalStorage('salary') || 6666
-  const fixedDay = await fetchLocalStorage('day') || 10
+
+  const originalTotal = await fetchLocalStorage('salary')
+  const originalFixedDay = await fetchLocalStorage('day')
+
+  const total = originalTotal || 6666
+  const fixedDay = originalFixedDay || 10
 
   document.getElementById('settings-salary').value = total
   document.getElementById('settings-date-select').value = `${fixedDay}`
@@ -61,6 +65,21 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   drawCurve()
 
+  const button = document.getElementById('settings-button-img');
+  const content = document.getElementById('settings-content');
+  if (!originalTotal && !originalFixedDay) {
+    button.src = 'up.png'
+    content.style.display = 'block';
+  } else {
+    button.src = 'down.png'
+    content.style.display = 'none';
+  }
+
+  document.getElementById("settings-button").addEventListener("click", function () {
+    toggleContent()
+    console.log('toggled....')
+  })
+
 });
 
 function drawCurve() {
@@ -112,4 +131,16 @@ async function fetchLocalStorage(key) {
       resolve((result[key]))
     });
   })
+}
+
+function toggleContent() {
+  const content = document.getElementById('settings-content');
+  const button = document.getElementById('settings-button-img');
+  if (button.src.includes('down.png')) {
+    content.style.display = 'block';
+    button.src = 'up.png'
+  } else {
+    content.style.display = 'none';
+    button.src = 'down.png'
+  }
 }

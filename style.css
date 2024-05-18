@@ -42,6 +42,23 @@ body {
   margin-top: 30px;
 }
 
+#settings-button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#settings-button-img {
+  width: 23px;
+  height: 15px;
+}
+
+#settings-content {
+  margin-top: 10px;
+}
+
 #settings-salary-box {
   display: flex;
   flex-direction: row;
