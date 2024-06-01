@@ -80,6 +80,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     console.log('toggled....')
   })
 
+  const flipContainer = document.querySelector('.flip-container');
+  const flipButton = document.getElementById('flipButton');
+
+  flipButton.addEventListener('click', () => {
+    flipContainer.classList.toggle('flipped');
+  });
+
 });
 
 function drawCurve() {

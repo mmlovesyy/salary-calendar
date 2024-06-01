@@ -9,77 +9,87 @@
 </head>
 
 <body>
-    <div id="box">
-        <div id="money-amount">
-            <span class="title">本月你已搞钱</span>
-            <div id="salary-got-box">
-                <span id="salary-got" class="number">0</span>
-                <span class="unit">元</span>
-            </div>
-        </div>
 
-        <canvas id="curveCanvas"></canvas>
+    <div class="flip-container">
+        <div class="flipper">
+            <button id="flipButton">Flip</button>
+            <div class="front">
+                <div id="box">
+                    <div id="money-amount">
+                        <span class="title">本月你已搞钱</span>
+                        <div id="salary-got-box">
+                            <span id="salary-got" class="number">0</span>
+                            <span class="unit">元</span>
+                        </div>
+                    </div>
 
-        <div id="days-left">
-            <span class="title">距发薪还剩</span>
-            <span id='days-left-number' class="title">6</span>
-            <span class="unit">天</span>
-        </div>
+                    <canvas id="curveCanvas"></canvas>
 
-        <div id="settings" class="input-title">
+                    <div id="days-left">
+                        <span class="title">距发薪还剩</span>
+                        <span id='days-left-number' class="title">6</span>
+                        <span class="unit">天</span>
+                    </div>
 
-            <div id="settings-button">
-                <img id='settings-button-img' src="up.png" />
-            </div>
-            <div id="settings-content">
-                <div id="settings-salary-box">
-                    <span>你的月薪</span>
-                    <input id="settings-salary" value="6666" />
-                    <span>元</span>
+                    <div id="settings" class="input-title">
+
+                        <div id="settings-button">
+                            <img id='settings-button-img' src="up.png" />
+                        </div>
+                        <div id="settings-content">
+                            <div id="settings-salary-box">
+                                <span>你的月薪</span>
+                                <input id="settings-salary" value="6666" />
+                                <span>元</span>
+                            </div>
+
+                            <div id="settings-date-box">
+                                <span class="input-title">发薪日为每月</span>
+                                <select id="settings-date-select" sele="10">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                <span>号</span>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-
-                <div id="settings-date-box">
-                    <span class="input-title">发薪日为每月</span>
-                    <select id="settings-date-select" sele="10">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10" selected>10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                        <option value="25">25</option>
-                        <option value="26">26</option>
-                        <option value="27">27</option>
-                        <option value="28">28</option>
-                        <option value="29">29</option>
-                        <option value="30">30</option>
-                        <option value="31">31</option>
-                    </select>
-                    <span>号</span>
-                </div>
-
+            </div>
+            <div class="back">
+                Back Side
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
